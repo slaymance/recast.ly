@@ -20,3 +20,4 @@ var initializeApp = function () {
     console.error('Couldn\'t get data');
   });
 };
+initializeApp();
