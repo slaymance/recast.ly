@@ -10,7 +10,7 @@ describe('App', function() {
 
   beforeEach(function() {
     app = renderIntoDocument(
-      <App searchYouTube={() => {}}/>
+      <App videos={exampleVideoData}/>
     );
   });
 
@@ -46,19 +46,23 @@ describe('App', function() {
     });
   });
 
-  xdescribe('when rendering live data from YouTube', function() {
+  describe('when rendering live data from YouTube', function() {
     var searchYouTubeStub;
 
     beforeEach(function() {
-      searchYouTubeStub = sinon.stub();
-      searchYouTubeStub.yields(window.fakeVideoData);
-      app = renderIntoDocument(
-        <App searchYouTube={searchYouTubeStub} />
-      );
+      // var spy = sinon.spy(searchYouTube);
+      // searchYouTubeStub = sinon.stub();
+      // searchYouTubeStub.yields(window.fakeVideoData);
+      // app = renderIntoDocument(
+      //   <App videos={exampleVideoData} />
+      // );
     });
 
     it('should call `searchYouTube` when app is initialized', function() {
-      expect(searchYouTubeStub.called).to.be.true;
+      sinon.spy(window, 'searchYouTube');
+      initializeApp();
+      // sinon.useFakeTimers().tick(500);
+      expect(searchYouTube.called).to.be.true;
     });
 
     it('should load live data when app is initialized', function() {

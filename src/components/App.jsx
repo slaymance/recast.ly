@@ -1,11 +1,15 @@
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {video: props.videos[0]};
+    this.state = {video: props.videos[0], videos: this.props.videos};
   }
 
   callback(videoSelected) {
     this.setState({video: videoSelected});
+  }
+
+  searchCallback(newVideos) {
+    this.setState({videos: newVideos});
   }
 
   render() {
@@ -13,7 +17,7 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <Search />
+            <Search searchCallback={this.searchCallback.bind(this)}/>
           </div>
         </nav>
         <div className="row">
@@ -21,7 +25,7 @@ class App extends React.Component {
             <VideoPlayer video={this.state.video}/>
           </div>
           <div className="col-md-5">
-            <VideoList videos={this.props.videos} callback={this.callback.bind(this)}/>
+            <VideoList videos={this.state.videos} callback={this.callback.bind(this)}/>
           </div>
         </div>
       </div>
