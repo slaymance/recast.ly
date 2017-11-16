@@ -1,8 +1,10 @@
-var VideoList = (props) => (
+var VideoList = () => (
   <div className="video-list">
-    {props.videos.map(video => 
-      <VideoListEntry key={video.id.videoId} video={video} callback={props.callback}/>
-    )}
+    <div><h5><em>videoListEntry</em> view goes here</h5></div>
+    <div><h5><em>videoListEntry</em> view goes here</h5></div>
+    <div><h5><em>videoListEntry</em> view goes here</h5></div>
+    <div><h5><em>videoListEntry</em> view goes here</h5></div>
+    <div><h5><em>videoListEntry</em> view goes here</h5></div>
   </div>
 );
 
