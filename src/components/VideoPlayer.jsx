@@ -1,20 +1,33 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const VideoPlayer = () => (
+const VideoPlayer = props => (
   <div className="video-player">
     <div className="embed-responsive embed-responsive-16by9">
       <iframe
         title="Video Player"
         className="embed-responsive-item"
-        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        src={`https://www.youtube.com/embed/${props.video.id.videoId}`}
         allowFullScreen
       />
     </div>
     <div className="video-player-details">
-      <h3>Video Title</h3>
-      <div>Video Description</div>
+      <h3>{props.video.snippet.title}</h3>
+      <div>{props.video.snippet.description}</div>
     </div>
   </div>
 );
+
+VideoPlayer.propTypes = {
+  video: PropTypes.shape({
+    id: {
+      videoId: PropTypes.string,
+    },
+    snippet: {
+      title: PropTypes.string,
+      description: PropTypes.string,
+    },
+  }).isRequired,
+};
 
 export default VideoPlayer;

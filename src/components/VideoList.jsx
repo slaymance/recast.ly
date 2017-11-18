@@ -1,13 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import VideoListEntry from './VideoListEntry';
 
-const VideoList = () => (
+const VideoList = props => (
   <div className="video-list">
-    <div><h5><em>videoListEntry</em> view goes here</h5></div>
-    <div><h5><em>videoListEntry</em> view goes here</h5></div>
-    <div><h5><em>videoListEntry</em> view goes here</h5></div>
-    <div><h5><em>videoListEntry</em> view goes here</h5></div>
-    <div><h5><em>videoListEntry</em> view goes here</h5></div>
+    { props.videos.map(video =>
+      <VideoListEntry video={video} key={video.id.videoId} />)}
   </div>
 );
+
+VideoList.propTypes = {
+  videos: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default VideoList;

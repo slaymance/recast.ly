@@ -2,6 +2,7 @@ import React from 'react';
 import Search from './Search';
 import VideoPlayer from './VideoPlayer';
 import VideoList from './VideoList';
+import store from '../redux/reducers';
 
 const App = () => (
   <div>
@@ -12,10 +13,10 @@ const App = () => (
     </nav>
     <div className="row">
       <div className="col-md-7">
-        <VideoPlayer />
+        <VideoPlayer video={store.getState()[0]} />
       </div>
       <div className="col-md-5">
-        <VideoList />
+        <VideoList videos={store.getState()} />
       </div>
     </div>
   </div>

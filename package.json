@@ -8,16 +8,22 @@
   "scripts": {
     "test": "live-server --open=./SpecRunner.html --port=8081",
     "postinstall": "curl -s https://raw.githubusercontent.com/reactorcore/pomander/master/bin/install | bash",
-    "start": "webpack --w --progress --colors"
+    "start": "webpack --w --progress --colors",
+    "babel-node": "babel-node --ignore='/node_modules/' --presets=env"
   },
   "dependencies": {
     "bootstrap": "^4.0.0-beta.2",
     "jquery": "^2.2.4",
     "lodash": "^4.17.4",
-    "react": "^0.14.9",
-    "react-dom": "^0.14.9"
+    "prop-types": "^15.6.0",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "redux-devtools": "^3.4.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
