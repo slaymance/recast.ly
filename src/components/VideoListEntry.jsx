@@ -23,15 +23,15 @@ const VideoListEntry = props => (
 
 VideoListEntry.propTypes = {
   video: PropTypes.shape({
-    snippet: {
+    snippet: PropTypes.shape({
       title: PropTypes.string,
       description: PropTypes.string,
-      thumbnails: {
-        default: {
+      thumbnails: PropTypes.shape({
+        default: PropTypes.shape({
           url: PropTypes.string,
-        },
-      },
-    },
+        }),
+      }),
+    }),
   }).isRequired,
 };
 

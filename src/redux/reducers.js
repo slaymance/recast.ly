@@ -3,8 +3,8 @@ import exampleVideoData from '../data/exampleVideoData';
 
 const recastApp = (state = exampleVideoData, action) => {
   switch (action.type) {
-    case 'CREATE_VIDEO_LIST':
-      return exampleVideoData;
+    case 'UPDATE_VIDEO_LIST':
+      return action.videos;
     default:
       return state;
   }

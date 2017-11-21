@@ -20,13 +20,13 @@ const VideoPlayer = props => (
 
 VideoPlayer.propTypes = {
   video: PropTypes.shape({
-    id: {
+    id: PropTypes.shape({
       videoId: PropTypes.string,
-    },
-    snippet: {
+    }),
+    snippet: PropTypes.shape({
       title: PropTypes.string,
       description: PropTypes.string,
-    },
+    }),
   }).isRequired,
 };
 

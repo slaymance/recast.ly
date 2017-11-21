@@ -4,6 +4,8 @@ import VideoPlayer from './VideoPlayer';
 import VideoList from './VideoList';
 import store from '../redux/reducers';
 
+const videos = store.getState();
+
 const App = () => (
   <div>
     <nav className="navbar">
@@ -13,10 +15,10 @@ const App = () => (
     </nav>
     <div className="row">
       <div className="col-md-7">
-        <VideoPlayer video={store.getState()[0]} />
+        <VideoPlayer video={videos[0]} />
       </div>
       <div className="col-md-5">
-        <VideoList videos={store.getState()} />
+        <VideoList videos={videos} />
       </div>
     </div>
   </div>

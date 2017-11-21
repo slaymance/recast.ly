@@ -1,3 +1,4 @@
-const createVideoList = videos => ({ type: 'CREATE_VIDEO_LIST', videos });
-
-export default createVideoList;
+export const createVideoList = videos => ({
+  type: 'UPDATE_VIDEO_LIST',
+  videos,
+});
