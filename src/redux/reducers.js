@@ -1,7 +1,7 @@
-import { createStore } from 'redux';
+import { combineReducers } from 'redux';
 import exampleVideoData from '../data/exampleVideoData';
 
-const recastApp = (state = exampleVideoData, action) => {
+const videoList = (state = exampleVideoData, action) => {
   switch (action.type) {
     case 'UPDATE_VIDEO_LIST':
       return action.videos;
@@ -10,6 +10,6 @@ const recastApp = (state = exampleVideoData, action) => {
   }
 };
 
-const store = createStore(recastApp);
-
-export default store;
+export default combineReducers({
+  videoList,
+});
