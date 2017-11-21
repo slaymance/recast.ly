@@ -1,8 +1,13 @@
 import $ from 'jquery';
-import updateVideoList from '../redux/actions';
+import {
+  fetchVideos,
+  fetchVideosSuccess,
+  fetchVideosFailure,
+} from '../redux/actions';
 import YOUTUBE_API_KEY from '../config/youtube';
 
-const searchYouTube = (options) => {
+const searchYouTube = (options, dispatch) => {
+  dispatch(fetchVideos());
   $.ajax({
     url: 'https://www.googleapis.com/youtube/v3/search',
     data: {
@@ -15,12 +20,11 @@ const searchYouTube = (options) => {
     contentType: 'application/json',
     dataType: 'json',
     success: (data) => {
-      console.log('AJAX request successful');
-      console.log(data.items);
-      updateVideoList(data.items);
+      dispatch(fetchVideosSuccess(data.items));
     },
-    error: () => {
-      console.error('AJAX request failed');
+    error: (error) => {
+      console.error('AJAX request failed', error);
+      dispatch(fetchVideosFailure(error));
     },
   });
 };

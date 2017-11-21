@@ -1,6 +1,15 @@
-export const updateVideoList = videos => ({
-  type: 'UPDATE_VIDEO_LIST',
+export const fetchVideos = () => ({
+  type: 'FETCH_VIDEOS',
+});
+
+export const fetchVideosSuccess = videos => ({
+  type: 'FETCH_VIDEOS_SUCCESS',
   videos,
+});
+
+export const fetchVideosFailure = error => ({
+  type: 'FETCH_VIDEOS_FAILURE',
+  error,
 });
 
 export const renderVideoPlayer = video => ({

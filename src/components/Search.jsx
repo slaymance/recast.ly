@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import searchYouTube from '../lib/searchYouTube';
 
-const Search = () => {
+const Search = ({ dispatch }) => {
   let input;
   return (
     <div className="search-bar form-inline">
@@ -17,8 +19,8 @@ const Search = () => {
         onClick={() => {
           searchYouTube({
             query: input.value,
-            max: 5
-          })
+            max: 5,
+          }, dispatch);
           input.value = '';
         }}
       >
@@ -28,4 +30,8 @@ const Search = () => {
   );
 };
 
-export default Search;
+Search.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+};
+
+export default connect()(Search);
