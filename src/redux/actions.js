@@ -1,6 +1,9 @@
-const updateVideoList = videos => ({
+export const updateVideoList = videos => ({
   type: 'UPDATE_VIDEO_LIST',
   videos,
 });
 
-export default updateVideoList;
+export const renderVideoPlayer = video => ({
+  type: 'RENDER_VIDEO_PLAYER',
+  video,
+});

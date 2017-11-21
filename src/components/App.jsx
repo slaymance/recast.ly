@@ -1,10 +1,7 @@
 import React from 'react';
 import Search from './Search';
-import VideoPlayer from './VideoPlayer';
-import VideoList from './VideoList';
-import store from '../redux/reducers';
-
-const videos = store.getState();
+import VideoPlayerRenderer from './VideoPlayerRenderer';
+import VisibleVideoList from './VisibleVideoList';
 
 const App = () => (
   <div>
@@ -15,10 +12,10 @@ const App = () => (
     </nav>
     <div className="row">
       <div className="col-md-7">
-        <VideoPlayer video={videos[0]} />
+        <VideoPlayerRenderer />
       </div>
       <div className="col-md-5">
-        <VideoList videos={videos} />
+        <VisibleVideoList />
       </div>
     </div>
   </div>
